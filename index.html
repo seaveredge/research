@@ -3,157 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Chris Verhoek, Research, blog">
-  <meta name="description" content="Professional blog">
+  <meta name="keywords" content="Chris Verhoek, Blog, Research">
+  <meta name="description" content="Professional and personal webpage of Chris Verhoek - Research page">
   <meta name="author" content="Chris Verhoek">
-  <title>Research -- chrisverhoek.com</title>
+  <title>Research page of Chris Verhoek</title>
   <link rel="stylesheet" type="text/css" href="https://chrisverhoek.com/style.css">
-  <!-- MATHJAX: http://www.math.toronto.edu/courses/mat237y1/20189/notes/Chapter1/S1.1.html ???  -->
+  
+  <link rel="icon" type="image/png" href="content/icon.png">
 </head>
 <body>
-<!-- #################################################################### -->
+
 <header  id="top">
-	<img src="https://chrisverhoek.com/content/cvsquare.jpg" alt="headshot">
+  <img src="https://chrisverhoek.com/content/cvsquare.jpg" alt="headshot">
 	<h1>Chris Verhoek -- Research</h1>
 	<p>PhD candidate etc.</p><br/>
-  <p style="text-align: center; border-top: 1px solid rgb(223, 223, 223);
-    border-radius: 5px; font-size: 10pt; padding-top: 3px;">
-    <span><a href="https://chrisverhoek.com">Home</a></span> | 
-    <span><a href="https://research.chrisverhoek.com">Research</a></span> | 
-    <span><a href="https://personal.chrisverhoek.com">Personal</a></span>
+  <p style="text-align: center; border-top: 1px solid rgb(223, 223, 223); border-radius: 5px; font-size: 10pt; padding: 10px;">
+    <span><a href="https://chrisverhoek.com" style="font-weight: normal;">Home</a></span> | 
+    <span><a href="https://research.chrisverhoek.com" style="font-weight: bold;">Research</a></span> | 
+    <span><a href="https://personal.chrisverhoek.com" style="font-weight: normal;">Personal</a></span>
+  </p>
+  <p style="text-align: center; border-top: 1px solid rgb(223, 223, 223);     border-radius: 0px; font-size: 10pt; padding: 5px;">
+    <span><a href="#news" style="font-style: italic;">News</a></span>
+<span><a href="#blogs" style="font-style: italic;">Blogs</a></span>
+<span><a href="#software" style="font-style: italic;">Software</a></span>
+<span><a href="#publications" style="font-style: italic;">Publications</a></span>
   </p>
 </header>
-<!-- #################################################################### -->
+
+
 <main>
 <article>
 	<h2>Welcome to my research page</h2>
 	<section>
 		<p>
-			On this page I will discuss my research I conducted over the years. You can find the list of my publications <a href="#publications">here</a>. The following is discussed on this page:
+			On this page you can find information and news about my adventures in terms of research. You can find the list of my publications <a href="#publications">here</a>.
 		</p>
-		<ul>
-			<li><a href="#cdc2021">Predictions with the Fundamental Lemma for LPV Systems</a></li>
-			<li><a href="#publications">List of publications</a></li>
-		</ul>
 	</section>
 </article>
-<article id="cdc2021">
-	<h2>Predictions with the Fundamental Lemma for LPV Systems</h2>
-	<p class="pdate">August 28, 2021</p>
-	<section>
-		<p>
-			Our paper "Fundamental Lemma for Data-Driven Analysis of Linear Parameter-Varying Systems" (you can find the preprint <a href="https://arxiv.org/pdf/2103.16171" target="_blank">here</a>) has been accepted for the 60th IEEE Conference on Decision and Control! 
-			<br/>
-			In this post, we want to add some extra information regarding the final prediction example in terms of simulation data. Moreover, we add another example with a random static, affine LPV-IO system<sup><a href="#cdc2021footnote1">[1]</a></sup>. We first give additional figures regarding the example in the paper, then we will give the additional example. The additional example can also be found on the APROCS website (<a href="https://aprocs.eu">https://aprocs.eu</a>).
-		</p>
-		<h3>Example in CDC paper</h3>
-		<p>
-			In this example, we use the system given below.
-			<figure>
-  			<img src="content/cdc2021/system.png" alt="system" style="width:90%">
-  			<figcaption>--- Static affine LPV system. ---</figcaption>
-			</figure>
-			In our example we do not know the coefficients of the system. We only assume that we know the number of inputs (1), outputs (1) and scheduling signals (2). Next, we gather data from the system with a length of 193 samples. This is what we will be referring to as the "data-dictionary". The data we used in the example is shown in the plots below (click on the plots to enlarge).
-		</p>
-		<div class="responsivethree">
-			<div class="gallery">
-				<a href="content/cdc2021/dd_input.png" target="_blank"><img src="content/cdc2021/dd_input.png" alt="Data-dictionary -- input"/></a> 
-  		  <div class="desc">--- Data-dictionary: Input data ---</div>
-			</div>
-		</div>
-		<div class="responsivethree">
-			<div class="gallery">
-    		<a href="content/cdc2021/dd_sched.png" target="_blank"><img src="content/cdc2021/dd_sched.png" alt="Data-dictionary -- Scheduling"/></a>
-			  <div class="desc">--- Data-dictionary: Scheduling data ---</div>
-			</div>
-		</div>
-		<div class="responsivethree">
-			<div class="gallery">
-    		<a href="content/cdc2021/dd_output.png" target="_blank"><img src="content/cdc2021/dd_output.png" alt="Data-dictionary -- Output" /></a>
-			  <div class="desc">--- Data-dictionary: Output data ---</div>
-			</div>
-	  </div>
-	  <div class="clearfix"></div>
-	  <p>
-	  	In order to build up our simulation problem, we use the paper by Markovsky and Rapisarda <a href="#cdc2021markovsky">[2]</a>. See for more details our <a href="#publpvs2021">LPVS</a> or <a href="#pubcdc2021">CDC</a> papers. We simulated an additional trajectory of length <i>L</i> + <i>T</i><sub>ini</sub>, where <i>L</i> = 30 is the length of the prediction and <i>T</i><sub>ini</sub> = 2 the length of the initial trajectory. In the simulation problem, the initial input, output and scheduling trajectories incorporate the initial conditions into the problem and ensure that the predicted output continues smoothly after the Tini'th time-step. In order to accurately predict the length L output, the associated inputs and scheduling signals are also incorporated into the problem. <em>Hence, the future inputs and scheduling signals are assumed to be known.</em> The simulation data we used in the example are shown in the plots below (click on the plots to enlarge), note that the output trajectory is only used to compare the prediction with the true output trajectory.
-	  </p>
-	  <div class="responsivethree">
-			<div class="gallery">
-				<a href="content/cdc2021/sd_input.png" target="_blank"><img src="content/cdc2021/sd_input.png" alt="Simulation data -- input"/></a> 
-  		  <div class="desc">--- Simulation data: Input ---</div>
-			</div>
-		</div>
-		<div class="responsivethree">
-			<div class="gallery">
-    		<a href="content/cdc2021/sd_sched.png" target="_blank"><img src="content/cdc2021/sd_sched.png" alt="Simulation data -- Scheduling"/></a>
-			  <div class="desc">--- Simulation data: Scheduling ---</div>
-			</div>
-		</div>
-		<div class="responsivethree">
-			<div class="gallery">
-    		<a href="content/cdc2021/sd_output.png" target="_blank"><img src="content/cdc2021/sd_output.png" alt="Simulation data -- Output" /></a>
-			  <div class="desc">--- Simulation data: Output ---</div>
-			</div>
-	  </div>
-	  <div class="clearfix"></div>
-	  <p>
-	  	Using this data, the future output is predicted and compared to the simulated output shown above. The result is shown below, which is the same plot as in the CDC paper.
-	  	<figure>
-  			<img src="content/cdc2021/pred_output.png" alt="predicted output" style="width:99%">
-  			<figcaption>--- Prediction results ---</figcaption>
-			</figure>
-			This plot shows that the prediction is 100% accurate, and the maximum absolute difference between the simulated and predicted signal is around the numerical accuracy limit.
-	  </p>
-	  <h3>Additional MIMO example</h3>
-	  <p>
-	  	In this example, we again have a simulation problem, but now for a random, static-affine MIMO LPV system, i.e.,
-	  	<figure>
-  			<img src="content/cdc2021/mimosystem.png" alt="MIMO system" style="width:99%">
-  			<figcaption style="padding-top: 5px;">--- MIMO system ---</figcaption>
-			</figure>
-			For this system we take the following parameters:
-		</p>
-		<p style="padding-left: 5px; padding-right: 5px;">
-			<i>n</i><sub>u</sub> = 2, <i>n</i><sub>p</sub> = 4, <i>n</i><sub>y</sub> = 3, <i>n</i><sub>a</sub> = 7, <i>n</i><sub>b</sub> = 6, <i>T</i><sub>ini</sub> = 7, <i>L</i> = 31, <i>N</i><sub>d</sub> = 894
-	  </p>
-	  <p>
-	  	The data dictionary is generated using random input and scheduling sequences. We will not show the data dictionary due to the large number of data points. We perform the prediction using the simulation data shown in the plots below (again, click on the plots to enlarge).
-	  </p>
-	  <div class="responsivethree">
-			<div class="gallery">
-				<a href="content/cdc2021/mimo_sd_input.png" target="_blank"><img src="content/cdc2021/mimo_sd_input.png" alt="Simulation data -- input"/></a> 
-  		  <div class="desc">--- Simulation data for random MIMO LPV system: Input ---</div>
-			</div>
-		</div>
-		<div class="responsivethree">
-			<div class="gallery">
-    		<a href="content/cdc2021/mimo_sd_sched.png" target="_blank"><img src="content/cdc2021/mimo_sd_sched.png" alt="Simulation data -- Scheduling"/></a>
-			  <div class="desc">--- Simulation data for random MIMO LPV system: Scheduling ---</div>
-			</div>
-		</div>
-		<div class="responsivethree">
-			<div class="gallery">
-    		<a href="content/cdc2021/mimo_sd_output.png" target="_blank"><img src="content/cdc2021/mimo_sd_output.png" alt="Simulation data -- Output" /></a>
-			  <div class="desc">--- Simulation data for random MIMO LPV system: Output ---</div>
-			</div>
-	  </div>
-	  <div class="clearfix"></div>
-	  <p>
-	  	Using this data, the future output sequence is predicted and compared to the simulated output sequence shown in the above-right plot. Again, the data-dictionary does exactly represent the system, as all the outputs of the MIMO LPV system are predicted perfectly. The prediction result is shown in the figures below (click on the figure to enlarge).
-		</p>
-		<div style="padding: 0 6px;float: left;width:99%;"><div class="gallery">
-    		<a href="content/cdc2021/mimo_final.png" target="_blank"><img src="content/cdc2021/mimo_final.png" alt="Prediction of mimo system - Output" width="100%"/></a>
-			  <div class="desc">--- Prediction results for the MIMO system ---</div>
-		</div></div><div class="clearfix"></div>
-		<p>
-			The first, second and third plot correspond to the first, second and third output, respectively. In the plots, the gray line is the baseline output from the simulation data. The dash-dotted line is the initial trajectory that is used in the simulation problem to account for the initial condition while the dashed, darker colored line is the prediction of the <i>n</i><sup>th</sup> output. The error between the baseline and the predicted output in the order of numerical accuracy.
-		</p>
-		<ol style="list-style-type:none;font-size: 80%;">
-			<li id="cdc2021footnote1">[1]: We might add an example with a different dependency in the future.</li>
-			<li id="cdc2021markovsky">[2]: I. Markovsky and P. Rapisarda,"Data-Driven Simulation and Control," <i>International Journal of Control</i>, vol. 81, no. 12, p. 1946-1959, 2008.</li>
-		</ol>
-		<p style="font-size: 90%; text-align: right;"><a href="#top">Back to top</a></p>
-	</section>
+
+<article id="news">
+<h2>News</h2>
+<section>
+  <dl>
+    
+    <dt>14-11-2023</dt><dd>
+      New paper online! We finished the LPV extension on data-driven predictive control for both the state-feedback and output-feedback case. Of course we a guideline how to use this for nonlinear systems and/or noisy data! <a href="https://arxiv.org/abs/2311.07140" target="_blank">Check out the paper here.</a>
+    </dd>
+    <dt>24-09-2023</dt><dd>
+      Today my 6 week-long visit at Florian Dörfler's group starts at ETH Zürich. I will give two talks there; a talk summarizing my research from the past year(s), and a tutorial on the LPV framework. I will also visit EPFL for a few days in the end of October. <br/>EDIT (06-11-2023): This was an amazing experience. I've been welcomed with open arms on both an academic and social level. IfA can be proud of being such a nice, vibrant group!
+    </dd>
+    <dt>10-07-2023</dt><dd>
+      I presented my paper "Direct data-driven LPV control of nonlinear systems: An experimental result" at the IFAC conference today. Next to that, it was also my birthday! What a nice way to celebrate your birthday <i>in Japan</i>! I also found out that for the CDC decision notifications, the two papers where I'm the main author have been accepted for presentation!
+    </dd>
+    <dt>04-04-2023</dt><dd>
+      Now that the CDC deadline has passed, I'm glad to tell you that we have submitted <i>four</i> contributions!<br/>
+      One joint L-CSS submission (which we hope is a landmark paper) that combines the universal shifted stability and performance ideas with data-driven LPV control. You can read that paper <a href="https://arxiv.org/pdf/2303.10648.pdf" target="_blank">here</a>. <br/>
+      Three regular submissions, which is mainly joint work with wonderful people. Two are on data-driven <a href="https://arxiv.org/pdf/2304.01859.pdf" target="_blank">analysis</a> and <a href="https://arxiv.org/pdf/2211.17191.pdf" target="_blank">(STL) control</a> of LTI systems, while the other one is on the machine learning research line. The latter develops a <a href="https://arxiv.org/pdf/2304.01828.pdf" target="_blank">stable and robust parametrization for learning LPV-ANN models</a>.
+    </dd>
+    <dt>01-02-2023</dt><dd>
+      Our Automatica paper <a href="https://research.chrisverhoek.com/#pubconvexincrementaldissipativity" target="_blank">Automatica paper</a> "Convex Incremental Dissipativity Analysis of Nonlinear Systems" is now available online and can be read here: <a href="https://doi.org/10.1016/j.automatica.2023.110859" target="_blank">doi.org/10.1016/j.automatica.2023.110859</a>.
+    </dd>
+    <dt>01-12-2022</dt><dd>
+      What is better to end the year with some nice announcements. <br/>
+      First of all, our <a href="https://research.chrisverhoek.com/#pubconvexincrementaldissipativity" target="_blank">Automatica paper</a> "Convex Incremental Dissipativity Analysis of Nonlinear Systems" has been accepted for publication! The extended version of the final submitted version can be found <a href="https://arxiv.org/abs/2006.14201" target="_blank">here</a>.<br/>
+      Secondly, we finished two papers on the data-driven LPV control research line; one journal paper (submitted to IEEE-TAC) titled <a href="https://arxiv.org/abs/2211.17182" target="_blank">"Direct Data-Driven State-Feedback Control of LPV Systems"</a> and a conference paper (submitted to IFAC2023) titled <a href="https://arxiv.org/abs/2211.17191" target="_blank">"Direct data-driven LPV control of nonlinear systems: An experimental result"</a>. Both papers discuss the direct data-driven synthesis of LPV state-feedback controllers, where the journal paper discusses all the theory, while the conference paper applies the theory in an experimental setting. In the end, we saw that one will only need 7 time-steps of measurement data for the design of an LPV state-feedback controller for an unbalanced disc system. See also a video of the experiments <a href="https://youtu.be/m9l61lR1Fw4" target="_blank">here</a> and <a href="https://youtu.be/SyyUVy1sPsc" target="_blank">here</a>.<br/>
+      And finally, the <a href="https://research.chrisverhoek.com/#publpvs2022" target="_blank">LPVS paper</a> has been published in the LPVS proceedings. You can find it <a href="https://doi.org/10.1016/j.ifacol.2022.11.287"  target="_blank">here</a>.
+    </dd>
+    <dt>17-07-2022</dt><dd>
+      Good news! The paper <a href="https://arxiv.org/abs/2204.04060" target="_blank">Deep-Learning-Based Identification of LPV Models for Nonlinear Systems</a> is accepted for presentation at, and publication in the proceedings of, the 61st IEEE Conference on Decision and Control in Cancun, Mexico. And the paper <a href="https://arxiv.org/abs/2205.09555" target="_blank">LPV Modeling of the Atmospheric Flight Dynamics of a Generic Parafoil Return Vehicle</a> that we submitted to the 5th IFAC Workshop on Linear Parameter Varying Systems is also accepted for presentation and publication!
+    </dd>
+    <dt>19-05-2022</dt><dd>
+      We have two new pre-prints online: a paper on <a href="https://arxiv.org/abs/2204.04060" target="_blank">Deep-Learning-Based Identification of LPV Models for Nonlinear Systems</a> and a paper on the <a href="https://arxiv.org/abs/2205.09555" target="_blank">LPV Modeling of the Atmospheric Flight Dynamics of a Generic Parafoil Return Vehicle</a>. Enjoy the read!</dd>
+    <dt>23-02-2022</dt><dd>
+      Our paper "Fundamental Lemma for Data-Driven Analysis of Linear Parameter-Varying Systems" has been published in the proceedings of the 60th IEEE Conference on Decision and Control (CDC). You can find it <a href="https://doi.org/10.1109/CDC45484.2021.9683151"  target="_blank">here</a>.</dd>
+  </dl>
+  <p style="font-size: 90%; text-align: right;"><a href="#top">Back to top</a></p>
+</section>
+
+</article>
+<article id="blogs">
+<h2>Blogs</h2>
+<section>
+    <p>
+        For some occasions, I write a short blog post. All these occasions are listed here:
+    </p>
+    <dl>
+        <dt style="font-style: normal; font-weight: bold"><a href="content/slides.html">List of presentation slides</a></dt>
+            <dd>This post is simply a list of the presentations I gave during conferences or visits, including links to the slides.</dd>
+        <dt style="font-style: normal; font-weight: bold"><a href="content/blog/cdc2021.html">Predictions with the Fundamental Lemma for LPV Systems</a></dt>
+            <dd>In this post, we want to add some extra information regarding the final prediction example of our <a href="#pubcdc2021">2021 CDC paper</a> in terms of simulation data.</dd>
+    </dl>
+    <i style="color:#500a0a">This list is incomplete, as this part is still under construction</i>
+    <p style="font-size: 90%; text-align: right;"><a href="#top">Back to top</a></p>
+</section>
+
+</article>
+<article id="software">
+<h2>Software</h2>
+<section>
+    <p>
+        In essence, I try to put all my (highly unpolished and probably inefficient, but working) code online that generated the examples in the papers I write. The complete list can be found <a href="https://gitlab.com/releases-c-verhoek">here</a>, but for your convenience I'll make a short list here:
+    </p>
+    <ul>
+        <li>
+            <b>Data-driven predictive control for LPV systems</b><br/>
+            The code corresponding to the paper <a href="https://www.sciencedirect.com/science/article/pii/S2405896321013641">''Data-Driven Predictive Control for Linear Parameter-Varying Systems''</a> can be found here: <a href="https://gitlab.com/releases-c-verhoek/lpv-data-predictive-control">https://gitlab.com/releases-c-verhoek/lpv-data-predictive-control</a>.
+        </li>
+    </ul>
+    <i style="color:#500a0a">This list is incomplete, as this part is still under construction</i>
+    <p style="font-size: 90%; text-align: right;"><a href="#top">Back to top</a></p>
+</section>
+
 </article>
 <article id="publications">
 	<h2>List of publications</h2>
@@ -164,10 +124,10 @@
 				C. Verhoek, J. Berberich, S. Haesaert, R. To&#769th, and H. S. Abbas. "A Linear Parameter-Varying Approach to Data Predictive Control." <i>Submitted to IEEE Transactions on Automatic Control</i>, 2023. (<a href="https://arxiv.org/pdf/2311.07140.pdf" target="_blank">pdf</a>, <a href="content/references.html#IEEETAC_DDDLPVDPC" target="_blank">bibtex</a>)
 			</li>
 			<li id="pubjournalddlpvdissip">
-				C. Verhoek, J. Berberich, S. Haesaert, F. Allg&#246;wer and R. To&#769th. "Data-driven Dissipativity Analysis of Linear Parameter-Varying Systems." <i>Submitted to IEEE Transactions on Automatic Control</i>, 2023. (<a href="https://arxiv.org/pdf/2303.10031.pdf" target="_blank">pdf</a>, <a href="content/references.html#IEEETAC_DDDLPVDISSIP" target="_blank">bibtex</a>)
+				C. Verhoek, J. Berberich, S. Haesaert, F. Allg&#246;wer and R. To&#769th. "Data-driven Dissipativity Analysis of Linear Parameter-Varying Systems." <i>Accepted in IEEE Transactions on Automatic Control</i>, 2023. (<a href="https://arxiv.org/pdf/2303.10031.pdf" target="_blank">pdf</a>, <a href="content/references.html#IEEETAC_DDDLPVDISSIP" target="_blank">bibtex</a>)
 			</li>
 			<li id="pubjournalddlpvstatefb">
-				C. Verhoek, R. To&#769th and H.S. Abbas. "Direct Data-Driven State-Feedback Control of Linear Parameter-Varying Systems." <i>Submitted to IEEE Transactions on Automatic Control</i>, 2022. (<a href="https://arxiv.org/pdf/2211.17182.pdf" target="_blank">pdf</a>, <a href="content/references.html#IEEETAC_DDDLPVSFB" target="_blank">bibtex</a>)
+				C. Verhoek, R. To&#769th and H.S. Abbas. "Direct Data-Driven State-Feedback Control of Linear Parameter-Varying Systems." <i>Submitted to International Journal of Robust and Nonlinear Control</i>, 2024. (<a href="https://arxiv.org/pdf/2211.17182.pdf" target="_blank">pdf</a>, <a href="content/references.html#IEEETAC_DDDLPVSFB" target="_blank">bibtex</a>)
 			</li>
 			<li id="pubconvexincrementaldissipativity">
 				C. Verhoek, P.J.W. Koelewijn, S. Haesaert, and R. To&#769th. "Convex Incremental Dissipativity Analysis of Nonlinear Systems." <i>Automatica</i>, vol. 150, p. 110859, 2023. (<a href="https://doi.org/10.1016/j.automatica.2023.110859" target="_blank">pdf</a>, <a href="content/references.html#autom_incremental" target="_blank">bibtex</a>)
@@ -194,7 +154,7 @@
 				C. Verhoek, R. Wang, and R. To&#769th. "Learning Stable and Robust Linear Parameter-Varying State-Space Models." <i> In Proc. of the 62nd IEEE Conference on Decision and Control (CDC)</i>, 2023, pp. 1348-1353. (<a href="https://arxiv.org/pdf/2304.01828.pdf" target="_blank">pdf</a>, <a href="content/references.html#CDC2023STAB" target="_blank">bibtex</a>)
 			</li>
 			<li id="pubESAconfAI4GNC2023">
-				L. Hewing, D. Gramlich, C. Verhoek, et al. <!--J. Veenman, R. Polonio, C. Ardura, R. To&#769th, C. Ebenbauer, C. W. Scherer, and V. Preda.--> "Enhancing the Guidance, Navigation, and Control of Autonomous Parafoils using Machine Learning Methods." <i> In Proc. of the 12th International Conference on Guidance, Navigation & Control Systems</i>, 2023. (<a href="https://az659834.vo.msecnd.net/eventsairwesteuprod/production-atpi-public/01f6387b55d4493c8001fed7a257624b" target="_blank">pdf</a>, <a href="content/references.html#ESAconfAI4GNC2023" target="_blank">bibtex</a>)
+				L. Hewing, D. Gramlich, C. Verhoek, et al.  "Enhancing the Guidance, Navigation, and Control of Autonomous Parafoils using Machine Learning Methods." <i> In Proc. of the 12th International Conference on Guidance, Navigation & Control Systems</i>, 2023. (<a href="https://az659834.vo.msecnd.net/eventsairwesteuprod/production-atpi-public/01f6387b55d4493c8001fed7a257624b" target="_blank">pdf</a>, <a href="content/references.html#ESAconfAI4GNC2023" target="_blank">bibtex</a>)
 			</li>
 			<li id="pubIFAC2023">
 				C. Verhoek, H.S. Abbas and R. To&#769th. "Direct data-driven LPV control of nonlinear systems: An experimental result." <i> In Proc. of the 22nd IFAC World Congress 2023 (IFAC2023)</i>, 2023, pp. 2263-2268. (<a href="https://arxiv.org/pdf/2211.17191.pdf" target="_blank">pdf</a>, <a href="content/references.html#IFAC2023" target="_blank">bibtex</a>)
@@ -234,19 +194,24 @@
 		<br/>
 		<p style="font-size: 90%;text-align: right;"><a href="#top">Back to top</a></p>
 	</section>
+
 </article>
+
 </main>
-<!-- #################################################################### -->
+
 <footer>
 	<p style="text-align: center;">
-    <a href="mailto:&#x63;&#x2e;&#x76;&#x65;&#x72;&#x68;&#x6f;&#x65;&#x6b;&#x40;&#x74;&#x75;&#x65;&#x2e;&#x6e;&#x6c;">E-mail</a> | 
-    <a href="https://scholar.google.com/citations?user=L4Nj_QkAAAAJ" target="_blank">Google Scholar</a> | 
-    <a href="https://github.com/seaveredge" target="_blank">Github</a> | 
-    <a href="https://www.linkedin.com/in/chris-verhoek-535266b6/" target="_blank">LinkedIn</a> | 
-    <a href="https://twitter.com/mechatronichris" target="_blank">Twitter</a><br/><br/> 
-    <a href="#top">Back to top</a> 
+    <a href="mailto:&#x63;&#x2e;&#x76;&#x65;&#x72;&#x68;&#x6f;&#x65;&#x6b;&#x40;&#x74;&#x75;&#x65;&#x2e;&#x6e;&#x6c;">E-mail</a> |
+    <a href="https://scholar.google.com/citations?user=L4Nj_QkAAAAJ" target="_blank">Google Scholar</a> |
+    <a href="https://github.com/seaveredge" target="_blank">Github</a> |
+    <a href="https://gitlab.com/releases-c-verhoek" target="_blank">GitLab</a> |
+    <a href="https://www.linkedin.com/in/chris-verhoek-535266b6/" target="_blank">LinkedIn</a> |
+    <a href="https://twitter.com/mechatronichris" target="_blank">Twitter</a><br/><br/>
+    <a href="#top">Back to top</a>
   </p>
+    <p style="font-size: 70%; color: #555555;text-align: center;"> &copy; 2024, Chris Verhoek. Built with HTML and <a href="https://github.com/seaveredge/Website-builder" target="_blank" style="color: #555555" >this website builder</a>. Hosted by GitHub Pages. </p>
 </footer>
-<!-- #################################################################### -->
+
+
 </body>
 </html>
